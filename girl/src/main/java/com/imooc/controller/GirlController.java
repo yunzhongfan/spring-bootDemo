@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.imooc.bean.ConfigBean;
 import com.imooc.domain.Girl;
 import com.imooc.properties.GirlProperties;
 import com.imooc.repository.GirlRepository;
@@ -44,6 +45,9 @@ public class GirlController {
     
     @Autowired
     private  GirlProperties   girlProperties;
+    
+    @Autowired
+    private  ConfigBean configBean;
     
 
     /**
@@ -118,5 +122,11 @@ public class GirlController {
     @GetMapping(value = "/girls/getGirlProperties")
     public  String   getGirlProperties(){
     	return  girlProperties.getCupSize()+girlProperties.getAge();
+    }
+    
+    
+    @GetMapping(value = "/girls/getGirlConfigBean")
+    public  String   getConfigConfigBean(){
+    	return  configBean.toString();
     }
 }

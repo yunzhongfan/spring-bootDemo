@@ -2,11 +2,14 @@ spring:
   profiles:
     active: dev
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/dbgirl
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/dbgirl
+    url: jdbc:h2:D:/testdb
+    driver-class-name: org.h2.Driver  
+    
     username: root
     password: mysql
-  jpa:
+jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
