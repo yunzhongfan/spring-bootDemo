@@ -19,7 +19,7 @@ public class TestClass extends Myclass {
 	}
 
 	public void getTestClassMethod() {
-		System.out.println("getTestClassMethod");
+		System.out.println("TestClass.getTestClassMethod");
 	}
 
 	public static void main(String[] args)
@@ -104,29 +104,41 @@ public class TestClass extends Myclass {
 
 		// ③、调用带参数 Constructor 对象的 newInstance 方法
 		 System.out.println("=====================新建类的实例getConstructor()的调用带参数 Constructor 对象的 newInstance 方法"); 
-		 Constructor<?> constructor3 = classType1.getDeclaredConstructor(String.class);
+		 Constructor<?> constructor3 = classType1.getDeclaredConstructor(classType1.getDeclaredClasses());
 		 Object ont1 = constructor3.newInstance();
 		 System.out.println(ont1);
 		 
 		/**
 		 * 
 		 * 6、调用类的函数 通过反射获取类 Method 对象，调用 Field 的 Invoke 方法调用函数。
+		 * 代理类的使用
+		 * 获取代理类的实例
+		 * 2，获取代理类的方法
+		 * 3.通过代理类的实例方法调用invoke方法
 		 */
-		System.out.println("=====================调用类的函数");
-		Class<?> classType51 = TestClass.class;
-		Object inst1 = classType51.newInstance();
-		Method logMethod = classType51.getDeclaredMethod("Log", String.class);
-		logMethod.invoke(inst, "test");
+		System.out.println("=====================调用类的函数Invoke");
+		Class<?> classType51 = Myclass.class;
+		Object inst1 = Myclass.class.newInstance();
+		Method logMethod = classType51.getMethod("getTestClassMethod");
+		logMethod.invoke(inst1);
+		Method logMethod1 = classType51.getMethod("getTestClassMethod", String.class);
+		logMethod1.invoke(inst1,"1221");
+		Method logMethod2 = classType51.getMethod("getTestClassMethod", String.class, String.class);
+		logMethod2.invoke(inst1,"1221","12321");
 
 		/**
 		 * 7、设置/获取类的属性值
 		 */
 		System.out.println("=====================7、设置/获取类的属性值");
-		Class<?> classType31 = TestClass.class;
+		Class<?> classType31 = Myclass.class;
 		Object inst2 = classType31.newInstance();
-		Field intField = classType31.getField("pubIntExtendField");
-		intField.setInt(inst, 100);
-		int value = intField.getInt(inst);
+		Field intField = inst2.getClass().getField("data2");
+		intField.getName();
+		System.out.println(intField.getName());
+		System.out.println(intField.getType());
+		System.out.println(intField.getChar("我是父类的data2属性"));
+	/*	System.out.println(intField.get);
+		int value = intField.getInt(inst);*/
 	}
 
 }

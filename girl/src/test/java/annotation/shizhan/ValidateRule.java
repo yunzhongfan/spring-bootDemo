@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ValidateRule {
-    String ruleName();
+    String ruleName();  //在使用注解的时候ruleName的值不能为空
 
     String params() default "";
 

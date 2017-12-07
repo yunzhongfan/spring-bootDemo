@@ -12,8 +12,10 @@ import annotation.spring.condation.bean.ListService;
  * Explain:运行类
  */
 public class MainTest {
-    public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConditionConfig.class);
+    private static AnnotationConfigApplicationContext context;
+
+	public static void main(String[] args) {
+        context = new AnnotationConfigApplicationContext(ConditionConfig.class);
         ListService listService = context.getBean(ListService.class);
         System.out.println(context.getEnvironment().getProperty("os.name")
             +"系统下的列表命令为："

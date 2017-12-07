@@ -20,7 +20,6 @@ package annotation.override;
  */
 public class Fruit {
 	
-	@Override
 	 public void displayName(){
 	        System.out.println("水果的名字是：*****");
 	    }

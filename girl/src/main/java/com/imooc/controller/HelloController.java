@@ -44,7 +44,7 @@ public class HelloController {
     @ApiImplicitParams({
         @ApiImplicitParam(paramType="header",name="username",dataType="String",required=true,value="用户的姓名",defaultValue="zhaojigang"),
         @ApiImplicitParam(paramType="query",name="password",dataType="String",required=true,value="用户的密码",defaultValue="wangna")
-    })
+    }) 
     
     
     @ApiResponses({

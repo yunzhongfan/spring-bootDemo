@@ -3,7 +3,8 @@ package annotation.deprecated;
 import annotation.test.Apple;
 
 public class FruitRun {
-	 public static void main(String[] args) {
+	 @SuppressWarnings("deprecation")
+	public static void main(String[] args) {
 	        Apple apple=new Apple();
 	        apple.displayName();    
 	        

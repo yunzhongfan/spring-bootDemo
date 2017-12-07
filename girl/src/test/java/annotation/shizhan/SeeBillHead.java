@@ -4,6 +4,7 @@ public class SeeBillHead {
     @ValidateRules(value = { @ValidateRule(ruleName = "notBlank", params = "", errorMsg = "用户名为空！") })
     private String userCode;// 用户名
 
+  //  @ValidateRules(value = { @ValidateRule(params = "", errorMsg = "密码为空！") })  ,ruleName不填写会报错
     @ValidateRules(value = { @ValidateRule(ruleName = "notBlank", params = "", errorMsg = "密码为空！") })
     private String passWord;// 密码
 
